@@ -16,7 +16,7 @@
 ```
 /
 ├── database-sql.txt       # 数据库结构定义
-├── database-insert.txt    # 数据库初始数据
+├── database-insert.txt    # 数据库初始数据(只提供了指定商家的指定产品信息，如有需要，可以更替修改项目中图片)
 ├── homepage/              # 首页相关文件
 │   ├── css/               # 样式文件
 │   ├── html/              # HTML页面
@@ -107,7 +107,7 @@
 
 ## 项目贡献者
 
-- [您的姓名]
+- Tephy, Mr.H, Mr.Ma
 
 ## 开源许可
 

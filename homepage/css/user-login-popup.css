@@ -1,0 +1,382 @@
+#is-login{
+    /* display: none; */
+    display: none;
+}
+
+.user-avator{
+    height: 30px;
+    width: auto;
+    margin: 5px;
+    border-radius: 50%;
+}
+
+.user-login-popup{
+    display: none;
+    position: absolute;      /*改为相对于父元素定位*/
+    z-index: 22;
+    top: 91%;              /*位于触发元素下方*/
+    left: -92px;
+    right: 0;
+    bottom: 0;
+}
+
+.user-login-popup-content{
+    width: 280px;
+    height: 290px;
+    background-color: rgb(251, 251, 251);
+    box-shadow: 4px 4px 16px rgba(0,0,0,0.2); /* 右下有点模糊的阴影 */
+    border-radius: 8px;
+    padding: 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-brief-logout-container{
+    position: relative;
+    border-bottom: 1px solid rgb(162, 162, 162);
+
+    height: 55px;
+    width: 90%;
+
+    display: flex;
+    align-items: center;
+}
+
+.user-brief-name{
+    font-size: 18px;
+    font-weight: normal;
+    font-family: 'Consolas';
+    position: absolute;
+    top: 10px;
+    left: 5px;
+}
+
+.user-logout{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 55px;
+    height: 30px;
+    border: 1px solid gold;
+    border-radius: 8px;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.user-logout:hover{
+    background-color: #f1cf13;
+    border-color: #f1cf13;
+    color: #000;
+}
+
+.function-setting-container{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px 0;
+    
+    height: 220px;
+    width: 100%;
+}
+
+.setting-item {
+    width: 90%;
+    height: 45px;
+    padding: 8px 15px;
+    margin: 5px 0;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.setting-item:hover {
+    background-color: rgba(241, 207, 19, 0.1);
+    border-color: rgba(241, 207, 19, 0.3);
+}
+
+.setting-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 12px;
+}
+
+.setting-item span {
+    font-size: 16px;
+    color: #333;
+    font-weight: 500;
+}
+
+/* 修改密码弹窗样式 - 移除内置背景，使用统一overlay */
+.change-password-popup,
+.change-username-popup,
+.change-phone-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1003;
+    width: 420px;
+    max-height: none; /* 移除最大高度限制 */
+    overflow: visible; /* 改为可见，避免滚动条 */
+}
+
+.change-password-popup-content,
+.change-username-popup-content,
+.change-phone-popup-content {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    position: relative;
+    max-height: 85vh; /* 限制内容区域高度 */
+    overflow-y: auto; /* 只在内容区域添加滚动 */
+    box-sizing: border-box;
+}
+
+/*“修改密码，修改用户名，修改手机号”关闭按钮样式*/
+.change-password-close-btn,
+.change-username-close-btn,
+.change-phone-close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    z-index: 10;
+}
+
+.change-password-close-btn:hover,
+.change-username-close-btn:hover,
+.change-phone-close-btn:hover {
+    opacity: 0.7;
+}
+
+/*“修改密码，修改用户名，修改手机号”标题样式*/
+.change-password-header,
+.change-username-header,
+.change-phone-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.change-password-header h2,
+.change-username-header h2,
+.change-phone-header h2 {
+    margin: 0;
+    color: #333;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+/* 输入组样式（复用登录弹窗的样式）*/
+.change-password-popup .input-group,
+.change-username-popup .input-group,
+.change-phone-popup .input-group {
+    margin-bottom: 15px; 
+}
+
+.change-password-popup .input-group label,
+.change-username-popup .input-group label,
+.change-phone-popup .input-group label {
+    display: block;
+    margin-bottom: 6px; 
+    color: #333;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/*“输入框”样式*/
+.change-password-popup .input-group input,
+.change-username-popup .input-group input,
+.change-phone-popup .input-group input {
+    width: 100%;
+    height: 42px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 0 14px;
+    font-size: 15px;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.change-password-popup .input-group input:focus,
+.change-username-popup .input-group input:focus,
+.change-phone-popup .input-group input:focus {
+    border-color: #f1cf13;
+    box-shadow: 0 0 0 2px rgba(241, 207, 19, 0.2);
+}
+
+/*“手机号输入块”样式*/
+.change-password-popup .phone-input-container,
+.change-phone-popup .phone-input-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: border-color 0.3s ease;
+}
+
+.change-password-popup .phone-input-container:focus-within,
+.change-phone-popup .phone-input-container:focus-within {
+    border-color: #f1cf13;
+    box-shadow: 0 0 0 2px rgba(241, 207, 19, 0.2);
+}
+
+/*修改密码，手机号弹窗样式*/
+.change-password-popup .country-code,
+.change-phone-popup .country-code {
+    background: #f9f9f9;
+    padding: 0 10px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    color: #666;
+    border-right: 1px solid #ddd;
+    flex-shrink: 0;
+}
+
+.change-password-popup .phone-input-container input,
+.change-phone-popup .phone-input-container input {
+    border: none;
+    margin: 0;
+    flex: 1;
+    height: 40px;
+}
+
+.change-password-popup .phone-input-container input:focus,
+.change-phone-popup .phone-input-container input:focus {
+    box-shadow: none;
+}
+
+/*“获取验证码按钮”样式*/
+.get-verify-code-btn,
+.get-current-phone-code-btn,
+.get-new-phone-code-btn {
+    width: 100%;
+    height: 42px;
+    background: #f1cf13;
+    color: #000;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px; 
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 12px; 
+}
+
+.get-verify-code-btn:hover,
+.get-current-phone-code-btn:hover,
+.get-new-phone-code-btn:hover {
+    background: #e6c00f;
+    transform: translateY(-1px);
+}
+
+.get-verify-code-btn:disabled,
+.get-current-phone-code-btn:disabled,
+.get-new-phone-code-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.verify-code-area,
+.current-phone-code-area,
+.new-phone-code-area {
+    margin-top: 12px; 
+}
+
+.verify-code-input,
+.current-phone-code-input,
+.new-phone-code-input {
+    width: 80%;
+    height: 42px; 
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 0 14px; 
+    font-size: 15px; 
+    margin-bottom: 8px; 
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.verify-code-input:focus,
+.current-phone-code-input:focus,
+.new-phone-code-input:focus {
+    border-color: #f1cf13;
+    box-shadow: 0 0 0 2px rgba(241, 207, 19, 0.2);
+}
+
+/*“验证码显示”样式*/
+.verify-code-display,
+.current-phone-code-display,
+.new-phone-code-display {
+    background: #f8f9fa;
+    border-radius: 6px;
+    padding: 10px; /* 减少内边距 */
+    font-family: monospace;
+    font-size: 16px; /* 减少字体大小 */
+    text-align: center;
+    color: #333;
+    margin-bottom: 12px; /* 减少间距 */
+}
+
+/*提交按钮样式*/
+.change-password-submit-btn,
+.change-username-submit-btn,
+.change-phone-submit-btn {
+    width: 100%;
+    height: 44px;
+    background: linear-gradient(90deg, #f1cf13 0%, #e6c00f 100%);
+    color: #000;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px; 
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 8px; 
+}
+
+.change-password-submit-btn:hover,
+.change-username-submit-btn:hover,
+.change-phone-submit-btn:hover {
+    background: linear-gradient(90deg, #e6c00f 0%, #d4ac0e 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(241, 207, 19, 0.3);
+}
+
+.change-password-submit-btn:active,
+.change-username-submit-btn:active,
+.change-phone-submit-btn:active {
+    transform: translateY(0);
+}
+
+/*“输入错误提示”样式*/
+.change-password-popup .error-message,
+.change-username-popup .error-message,
+.change-phone-popup .error-message {
+    color: #ff4444;
+    font-size: 13px; 
+    margin-bottom: 12px; 
+    min-height: 18px; 
+    display: flex;
+    align-items: center;
+}

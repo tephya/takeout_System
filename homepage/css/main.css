@@ -1,0 +1,103 @@
+body{
+    height: auto;   /*自适应高度，根据内容长短*/
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;     /*自上而下浮动*/
+    align-items: center;
+
+    background-color: rgb(235, 235, 235);
+}
+
+/*
+contain
+language
+log in / out
+comment
+cooperation
+*/
+.a1{
+    height: 35px;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    position: relative;
+    background-color: rgb(251, 251, 251);
+}
+
+/*
+contain
+logo
+sell well List Entrance
+search
+Preference setting
+*/
+.a2{
+    height: 78px;
+    width: 100%;
+
+    background-color: rgb(250, 206, 48);
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+/*
+contain
+my order
+share
+*/
+.a3{
+    height: 107px;
+    width: 55%;
+    background-color: rgb(251, 251, 251);
+    border-bottom: 1px solid rgb(208, 208, 208);
+    margin-top: 10px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+    box-shadow: 0 4px 12px rgba(68, 68, 68, 0.2);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+}
+
+/*
+contain
+address
+search
++
+foods
+*/
+.a4{
+    height: auto;
+    margin-top: 30px;
+    margin-bottom: 80px;
+    width: 630px;
+    min-width: 630px;
+
+    background-color: rgb(251, 251, 251);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 8px;
+}
+
+/*
+relative illustration
+*/
+.a5{
+    height: 200px;
+    width: 100%;
+
+    background-color: rgb(86, 86, 86);
+}

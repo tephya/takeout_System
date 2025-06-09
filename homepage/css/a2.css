@@ -1,0 +1,80 @@
+/*
+.a2{
+    height: 78px;
+    width: 100%;
+
+    background-color: rgb(250, 206, 48);
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+*/
+
+/*
+span 1
+*/
+.a2-s1{
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.as-s2{
+    font-size: 15px;
+    font-family: '宋体';
+}
+
+/*
+div1
+*/
+
+/* .a2-d1 img{
+    height: 150px;
+    width: auto;
+
+    background: none;
+} */
+
+.logo-left{
+    position: relative;
+    left: 50px;
+    height: 80;
+    width: auto;
+}
+
+.logo-right{
+    position: relative;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    height: 150px;
+    left: 30px;
+    width: auto;
+}
+
+.myorder {
+    position: absolute;
+    left: 84%;
+    width: 120px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.myorder button {
+    font-size: 18px;
+    font-family: '黑体';
+    border: 1px solid #bababa;
+    height: 50px;
+    border-radius: 5px;
+    background: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.myorder button:hover {
+    background-color: #4366e3;
+    border-color: #f1cf13;
+    color: #000;
+}

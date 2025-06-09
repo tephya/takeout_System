@@ -1,0 +1,143 @@
+.merchant-block {
+    width: 98%;  
+    margin: 20px 0;
+    background: none;
+    border: none;
+    box-shadow: none;
+}
+
+.pos-theme-list-sell-image{
+    width: 98%;
+    height: 320px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 8px;
+    margin: 0 5px;
+    margin-top: 5px;
+    background-image: url('../../Merchant/Merchants/百乐中心/P000100009.webp');
+    display: block;
+
+    position: relative;
+}
+
+.bookmark-icon{
+    position: absolute;
+    top: 20px;
+    right: 18px;
+
+    height: 28px;
+    width: auto;
+    background: none;
+}
+
+.bookmark-num{
+    font-family: 'Consolas';
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+
+    position: absolute;
+    top: 50px;
+    right: 20px;
+}
+
+.label-start-selling-time-container{
+    z-index: 9;
+    position: absolute;
+    top: 300px;
+    right: 30px;
+
+    width: 108px;
+    height: 35px;
+    background-color: rgb(251, 251, 251);
+    
+    border-radius: 28px;
+    box-shadow: 4px 4px 16px rgba(0,0,0,0.2);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.label-start-selling-time-container img{
+    height: 27px;
+    width: auto;
+}
+
+.start-selling-time{
+    font-size: 23px;
+    font-weight: bold;
+    font-family: 'Consolas';
+}
+
+.label-close-time-container{
+    z-index: 11;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 500px;
+    bottom: -38px;
+}
+
+
+.pos-theme-list-sell-info{
+    width: 100%;
+    height: 92px;
+
+    position: relative;
+}
+
+.pos-theme-list-sell-info-name{
+    position: absolute;
+    left: 15px;
+    top: 9px;
+
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Garamond';
+}
+
+.pos-theme-list-sell-info-address{
+    position: absolute;
+    left: 15px;
+    bottom: 37px;
+
+    font-weight: lighter;
+    font-size: 13px;
+}
+
+.food-brief-evaluate-emoji-container{
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+
+    height: 30px;
+    width: 100px;
+
+    padding: 0 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 15px;
+}
+
+.yammy-icon{
+    height: 16px;
+    width: auto;
+    background: none;
+}
+
+.dame-icon{
+    height: 16px;
+    width: auto;
+    background: none;
+}
+
+
+
+
+
+
+

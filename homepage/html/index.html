@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>开饭啦 | 准时准点,外卖首选</title>
+
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/a1.css">
+    <link rel="stylesheet" href="../css/a2.css">
+    <link rel="stylesheet" href="../css/a3.css">
+    <link rel="stylesheet" href="../css/a4.css">
+    <link rel="stylesheet" href="../css/Popup-order-Interface.css">
+    <link rel="stylesheet" href="../css/user-login-popup.css">
+    <link rel="stylesheet" href="../css/login-popup.css">
+
+</head>
+<body>
+    <div class="a1">    
+        <div class="a1-d1 a1-span">
+            <img src="../images/system/system.png" alt="">
+            <span>中国|简</span>
+        </div>
+
+        <div class="a1-d2">
+            <span id="unlogin" onclick="showLoginPopup()">登入/登录</span>
+            <img src="../images/icons/user-avator.webp" class="user-avator" id="is-login">
+            <div class="user-login-popup" id="user-login-popup">
+                <div class="user-login-popup-content">
+                    <div class="user-brief-logout-container">
+                        <div class="user-brief-name" id="user-brief-name">加载中...</div>
+                        <div class="user-logout" onclick="logout()">登出</div>
+                    </div>
+                    <div class="function-setting-container">
+                        <div class="setting-item" onclick="showChangePassword()">
+                            <img src="../images/icons/setting.svg" alt="设置" class="setting-icon">
+                            <span>修改密码</span>
+                        </div>
+                        <div class="setting-item" onclick="showChangeUsername()">
+                            <img src="../images/icons/user.svg" alt="用户" class="setting-icon">
+                            <span>修改用户名</span>
+                        </div>
+                        <div class="setting-item" onclick="showChangePhone()">
+                            <img src="../images/icons/phone.svg" alt="手机" class="setting-icon">
+                            <span>修改手机号</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="merchant-entry-btn" onclick="window.location.href='../../Merchant/html/merchant-entry.html'">
+                <img src="../../Merchant/images/shop.svg" alt="商家" class="merchant-icon">
+                <span>商家入驻</span>
+            </button>
+        </div>
+        
+    </div>
+    <div class="a2">
+        <img src="../images/logo/a_home_header_logo.svg" class="logo-left">
+        <img src="../images/logo/logo.png" class="logo-right">
+        <h2 style="margin-left: 20px;">舌尖上的福运观</h2>
+        <div class="myorder">
+            <a href="../../myorder/html/myorder.html">
+                <button>我的订单</button>
+            </a>
+        </div>
+    </div>
+    <div class="a3">
+        <div class="a3-category-bar">
+            <div class="category-item">璃月风味</div>
+            <div class="category-item">须弥</div>
+            <div class="category-item">稻妻佐食</div>
+            <div class="category-item">洛云食色</div>
+        </div>
+    </div> 
+    <div class="a4" id="merchant-images">
+        <div class="order-overlay" id="order-overlay"></div>
+        <div id="popup-pay-interface" class="popup-pay-interface">
+            <div class="popup-pay-interface-content">
+                <img src="../images/buttons/close.png" onclick="closePayPopup()">
+                <div class="content-header">
+                    <span>下单</span>
+                </div>
+                <div class="content-delivery-time">
+                    <img src="../images/icons/emoji-menu.svg">
+                    <div class="delivery-time-content">
+                        <div class="output-time" id="output-time"></div>
+                        <span class="expected-time">预计送达时间</span>
+                    </div>
+                </div>
+                
+                <div id="orders-container"></div>
+                <div id="order-details-container"></div>
+
+                <div class="cutlery-section">
+                    <div class="cutlery-content">
+                        <div class="cutlery-info">
+                            <div class="cutlery-title-row">
+                                <span class="cutlery-title">需要餐具</span>
+                            </div>
+                            <div class="cutlery-subtitle-row">
+                                <img src="../images/icons/Enviroment.svg" alt="环保图标" class="eco-icon">
+                                <span class="cutlery-subtitle">减碳，节源，再合营业态度</span>
+                            </div>
+                        </div>
+                        <div class="toggle-switch">
+                            <input type="checkbox" id="cutlery-toggle" checked>
+                            <label for="cutlery-toggle" class="toggle-label"></label>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="customer-info-section">
+                    <div class="input-field">
+                        <label for="customer-name">姓名 <span class="required">*</span></label>
+                        <input type="text" id="customer-name" placeholder="">
+                    </div>
+                    
+                    <div class="phone-field">
+                        <label for="customer-phone">电话号码 <span class="required">*</span></label>
+                        <div class="phone-input-group">
+                            <span class="country-code">+86</span>
+                            <input type="tel" id="customer-phone" placeholder="">
+                        </div>
+                        <div class="error-message" id="phone-error">
+                            <span class="error-icon">⚠</span>
+                            <span>请提供电话号码</span>
+                        </div>
+                        <div class="phone-note">
+                            我们会致电以选择方式通知好了更新情况
+                        </div>
+                    </div>
+                </div>
+
+                <div class="payment-section">
+                    <button class="payment-btn" id="payment-btn">
+                        付款 <span class="payment-amount">￥168</span>
+                    </button>
+                    <div class="payment-note">
+                        请确认表示你的网址服务条款用条款和细则
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="a5">
+        
+    </div>
+
+    <!-- 登录弹窗 -->
+    <div class="login-overlay" id="login-overlay"></div>
+    <div class="login-popup" id="login-popup">
+        <div class="login-popup-content">
+            <img src="../images/buttons/close.png" class="login-close-btn" onclick="closeLoginPopup()">
+            <div class="login-header">
+                <h2>用户登录</h2>
+            </div>
+            
+            <!-- 登录方式切换 -->
+            <div class="login-mode-switch">
+                <span class="login-mode-option active" id="password-mode-btn" onclick="switchToPasswordMode()">密码登录</span>
+                <span class="login-mode-option" id="captcha-mode-btn" onclick="switchToCaptchaMode()">验证码登录</span>
+            </div>
+            
+            <!-- 密码登录区域 -->
+            <div class="password-login-area" id="password-login-area">
+                <div class="input-group">
+                    <label>账户ID/手机号</label>
+                    <input type="text" id="account-input" placeholder="请输入账户ID或手机号">
+                </div>
+                <div class="input-group">
+                    <label>密码</label>
+                    <input type="password" id="password-input" placeholder="请输入密码">
+                </div>
+                <div class="error-message" id="password-error"></div>
+                <button class="login-submit-btn" id="password-login-btn">登录</button>
+            </div>
+            
+            <!-- 验证码登录区域 -->
+            <div class="captcha-login-area" id="captcha-login-area" style="display: none;">
+                <div class="input-group">
+                    <label>手机号</label>
+                    <div class="phone-input-container">
+                        <span class="country-code">+86</span>
+                        <input type="text" id="phone-input" placeholder="请输入手机号" maxlength="13">
+                    </div>
+                </div>
+                <button class="get-code-btn" id="get-code-btn">获取验证码</button>
+                <div class="verification-code-area" id="verification-code-area"></div>
+            </div>
+            
+            <!-- 注册链接 -->
+            <div class="register-link">
+                <span>还没有账户？</span>
+                <span class="register-btn" onclick="showRegisterPopup()">立即注册</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 注册弹窗 -->
+    <div class="register-popup" id="register-popup" style="display: none;">
+        <div class="register-popup-content">
+            <img src="../images/buttons/close.png" class="register-close-btn" onclick="closeRegisterPopup()">
+            <div class="register-header">
+                <h2>用户注册</h2>
+            </div>
+            <form id="register-form">
+                <div class="input-group">
+                    <label>用户ID</label>
+                    <input type="text" id="user-id" readonly>
+                </div>
+                <div class="input-group">
+                    <label>用户名</label>
+                    <input type="text" id="username" readonly>
+                </div>
+                <div class="input-group">
+                    <label>姓名 <span style="color: #ff4444;">*</span></label>
+                    <input type="text" id="real-name" required maxlength="50" placeholder="请输入您的真实姓名">
+                </div>
+                <div class="input-group">
+                    <label>密码</label>
+                    <input type="password" id="register-password" required pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,16}$" placeholder="6-16位，包含字母和数字">
+                </div>
+                <div class="input-group">
+                    <label>确认密码</label>
+                    <input type="password" id="confirm-password" required>
+                </div>
+                <div class="input-group">
+                    <label>性别</label>
+                    <select id="gender" required>
+                        <option value="" disabled selected>请选择</option>
+                        <option value="男">男</option>
+                        <option value="女">女</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>手机号</label>
+                    <div class="phone-input-container">
+                        <span class="country-code">+86</span>
+                        <input type="text" id="register-phone" placeholder="请输入手机号" maxlength="13" required>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>地址</label>
+                    <input type="text" id="address" required minlength="5" maxlength="200" placeholder="请输入详细地址">
+                </div>
+                <button type="submit" class="register-submit-btn">注册</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 修改密码弹窗 -->
+    <div class="change-password-popup" id="change-password-popup" style="display: none;">
+        <div class="change-password-popup-content">
+            <img src="../images/buttons/close.png" class="change-password-close-btn" onclick="closeChangePasswordPopup()">
+            <div class="change-password-header">
+                <h2>修改密码</h2>
+            </div>
+            
+            <!-- 验证手机号步骤 -->
+            <div class="verify-phone-step" id="verify-phone-step">
+                <div class="input-group">
+                    <label>手机号验证</label>
+                    <div class="phone-input-container">
+                        <span class="country-code">+86</span>
+                        <input type="text" id="verify-phone-input" placeholder="请输入手机号" maxlength="13" readonly>
+                    </div>
+                </div>
+                <button class="get-verify-code-btn" id="get-verify-code-btn">获取验证码</button>
+                <div class="verify-code-area" id="verify-code-area"></div>
+            </div>
+            
+            <!-- 修改密码步骤 -->
+            <div class="change-password-step" id="change-password-step" style="display: none;">
+                <div class="input-group">
+                    <label>新密码</label>
+                    <input type="password" id="new-password" placeholder="6-16位，包含字母和数字" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,16}$">
+                </div>
+                <div class="input-group">
+                    <label>确认新密码</label>
+                    <input type="password" id="confirm-new-password" placeholder="请再次输入新密码">
+                </div>
+                <div class="error-message" id="password-change-error"></div>
+                <button class="change-password-submit-btn" id="change-password-submit-btn">确认修改</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 修改用户名弹窗 -->
+    <div class="change-username-popup" id="change-username-popup" style="display: none;">
+        <div class="change-username-popup-content">
+            <img src="../images/buttons/close.png" class="change-username-close-btn" onclick="closeChangeUsernamePopup()">
+            <div class="change-username-header">
+                <h2>修改用户名</h2>
+            </div>
+            <div class="input-group">
+                <label>当前用户名</label>
+                <input type="text" id="current-username" readonly>
+            </div>
+            <div class="input-group">
+                <label>新用户名</label>
+                <input type="text" id="new-username" placeholder="请输入新用户名" maxlength="20">
+            </div>
+            <div class="error-message" id="username-change-error"></div>
+            <button class="change-username-submit-btn" id="change-username-submit-btn">确认修改</button>
+        </div>
+    </div>
+
+    <!-- 修改手机号弹窗 -->
+    <div class="change-phone-popup" id="change-phone-popup" style="display: none;">
+        <div class="change-phone-popup-content">
+            <img src="../images/buttons/close.png" class="change-phone-close-btn" onclick="closeChangePhonePopup()">
+            <div class="change-phone-header">
+                <h2>修改手机号</h2>
+            </div>
+            
+            <!-- 验证当前手机号步骤 -->
+            <div class="verify-current-phone-step" id="verify-current-phone-step">
+                <div class="input-group">
+                    <label>当前手机号验证</label>
+                    <div class="phone-input-container">
+                        <span class="country-code">+86</span>
+                        <input type="text" id="current-phone-input" placeholder="当前手机号" readonly>
+                    </div>
+                </div>
+                <button class="get-current-phone-code-btn" id="get-current-phone-code-btn">获取验证码</button>
+                <div class="current-phone-code-area" id="current-phone-code-area"></div>
+            </div>
+            
+            <!-- 设置新手机号步骤 -->
+            <div class="set-new-phone-step" id="set-new-phone-step" style="display: none;">
+                <div class="input-group">
+                    <label>新手机号</label>
+                    <div class="phone-input-container">
+                        <span class="country-code">+86</span>
+                        <input type="text" id="new-phone-input" placeholder="请输入新手机号" maxlength="13">
+                    </div>
+                </div>
+                <button class="get-new-phone-code-btn" id="get-new-phone-code-btn">获取验证码</button>
+                <div class="new-phone-code-area" id="new-phone-code-area"></div>
+                <div class="error-message" id="phone-change-error"></div>
+                <button class="change-phone-submit-btn" id="change-phone-submit-btn" style="display: none;">确认修改</button>
+            </div>
+        </div>
+    </div>
+    <script src="../js/pay-open-close.js"></script>
+    <script src="../js/common-utils.js"></script>
+    <script src="../js/output-time.js"></script>
+    <script src="../js/showUser-Popup.js"></script>
+    <script src="../js/login-popup.js"></script>
+    <script src="../js/user-settings.js"></script>
+    <script src="../js/test-login.js"></script>
+    <script src="../js/Get-merchant-info.js"></script>
+    <script src="../js/map-cuisine.js"></script>
+</body>
+</html> 

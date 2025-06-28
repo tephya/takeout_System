@@ -102,6 +102,8 @@
 ## 注意事项
 
 - 确保MySQL服务已启动并正确配置
+- 确保运行前，安装了`mysql2、express、cors`
+- 安装语句如：`npm install mysql2`
 - 默认数据库连接配置在`node-link-js/dataToDatabase.js`中
 - 系统需要网络连接以加载某些资源
 
